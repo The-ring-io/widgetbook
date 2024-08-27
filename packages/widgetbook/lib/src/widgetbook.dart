@@ -28,6 +28,11 @@ class Widgetbook extends StatefulWidget {
     this.lightTheme,
     this.darkTheme,
     this.themeMode,
+    this.locale,
+    this.localeListResolutionCallback,
+    this.localeResolutionCallback,
+    this.localizationsDelegates,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
   });
 
   /// A [Widgetbook] with [CupertinoApp] as an [appBuilder].
@@ -41,6 +46,11 @@ class Widgetbook extends StatefulWidget {
     this.lightTheme,
     this.darkTheme,
     this.themeMode,
+    this.locale,
+    this.localeListResolutionCallback,
+    this.localeResolutionCallback,
+    this.localizationsDelegates,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
   });
 
   /// A [Widgetbook] with [MaterialApp] as an [appBuilder].
@@ -54,6 +64,11 @@ class Widgetbook extends StatefulWidget {
     this.lightTheme,
     this.darkTheme,
     this.themeMode,
+    this.locale,
+    this.localeListResolutionCallback,
+    this.localeResolutionCallback,
+    this.localizationsDelegates,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
   });
 
   /// The initial route for that will be used on first startup.
@@ -95,6 +110,21 @@ class Widgetbook extends StatefulWidget {
   /// This parameter allows you to set the theme to light, dark, or follow the system setting.
   /// By default, it follows the system theme.
   final ThemeMode? themeMode;
+
+    /// {@macro flutter.widgets.widgetsApp.locale}
+  final Locale? locale;
+
+  /// {@macro flutter.widgets.widgetsApp.localeListResolutionCallback}
+  final LocaleListResolutionCallback? localeListResolutionCallback;
+
+  /// {@macro flutter.widgets.LocaleResolutionCallback}
+  final LocaleResolutionCallback? localeResolutionCallback;
+
+  /// {@macro flutter.widgets.widgetsApp.localizationsDelegates}
+  final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
+
+  /// {@macro flutter.widgets.widgetsApp.supportedLocales}
+  final Iterable<Locale> supportedLocales;
 
   @override
   State<Widgetbook> createState() => _WidgetbookState();
@@ -143,6 +173,11 @@ class _WidgetbookState extends State<Widgetbook> {
         darkTheme: widget.darkTheme ?? Themes.dark,
         routerConfig: router,
         debugShowCheckedModeBanner: false,
+        locale: widget.locale,
+        localeListResolutionCallback: widget.localeListResolutionCallback,
+        localeResolutionCallback: widget.localeResolutionCallback,
+        localizationsDelegates: widget.localizationsDelegates,
+        supportedLocales: widget.supportedLocales,
       ),
     );
   }
